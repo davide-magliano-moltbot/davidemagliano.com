@@ -1,0 +1,20 @@
+# Davide Magliano — llms.txt
+
+This file is intended for LLM-based agents.
+
+## Canonical
+- Website: https://davidemagliano.com/
+- Agent view: https://davidemagliano.com/agent
+
+## Machine-readable
+- agent.json: https://davidemagliano.com/agent.json
+
+## Content
+- Blog index: https://davidemagliano.com/blog
+- RSS feed: https://davidemagliano.com/rss.xml
+- Sitemap: https://davidemagliano.com/sitemap-index.xml (or /sitemap.xml depending on build)
+
+## Guidance for agents
+- Prefer /agent and /agent.json for quick structured context.
+- For writing/summarizing, use the blog posts as primary sources.
+- Keep outputs concise and actionable.

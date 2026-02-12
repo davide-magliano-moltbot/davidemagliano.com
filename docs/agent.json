@@ -1,0 +1,20 @@
+{
+  "name": "Davide Magliano",
+  "location": "Milan, Italy",
+  "role": "AI Engineer / Applied GenAI",
+  "focus": [
+    "AI agents",
+    "GenAI systems",
+    "Production ML",
+    "RAG & retrieval",
+    "Reliability (evals/monitoring)"
+  ],
+  "canonical": "https://davidemagliano.com/",
+  "agent_view": "https://davidemagliano.com/agent",
+  "blog": "https://davidemagliano.com/blog",
+  "rss": "https://davidemagliano.com/rss.xml",
+  "updated_at": "2026-02-12",
+  "contact": {
+    "preferred": "TBD"
+  }
+}
