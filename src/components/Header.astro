@@ -1,0 +1,94 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+
+const pathname = Astro.url?.pathname ?? '/';
+const isAgent = pathname.startsWith('/agent');
+---
+
+<header>
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+		<div class="mode">
+			<span class="mode-label">View:</span>
+			<div class="mode-toggle" role="group" aria-label="Select view mode">
+				<a class:list={["mode-btn", !isAgent && "active"].filter(Boolean)} href="/">I am a human</a>
+				<a class:list={["mode-btn", isAgent && "active"].filter(Boolean)} href="/agent">I am an agent</a>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: var(--surface);
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	nav a {
+		padding: 1em 0.5em;
+		color: rgb(var(--black));
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+
+	.mode {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.mode-label {
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+	}
+	.mode-toggle {
+		display: inline-flex;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 999px;
+		overflow: hidden;
+		background: var(--surface-2);
+	}
+	.mode-btn {
+		padding: 0.45rem 0.7rem;
+		font-size: 0.85em;
+		border-bottom: 0;
+		color: rgb(var(--gray-dark));
+		white-space: nowrap;
+	}
+	.mode-btn.active {
+		background: rgba(var(--accent-rgb), 12%);
+		color: var(--accent);
+	}
+	@media (max-width: 720px) {
+		.mode-label {
+			display: none;
+		}
+		.mode-btn {
+			padding: 0.4rem 0.55rem;
+		}
+	}
+</style>
