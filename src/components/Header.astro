@@ -99,7 +99,11 @@ const isAgent = pathname.startsWith('/agent');
 		background: rgba(var(--surface-2-rgb), 0.55);
 	}
 	.mode-toggle a {
-		padding: 0.45rem 0.7rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem 0.75rem;
+		min-height: 40px;
 		font-size: 0.82em;
 		border-bottom: 0;
 		text-decoration: none;
@@ -174,7 +178,8 @@ const isAgent = pathname.startsWith('/agent');
 			display: none;
 		}
 		.mode-toggle a {
-			padding: 0.42rem 0.55rem;
+			padding: 0.42rem 0.6rem;
+			min-height: 38px;
 			font-size: 0.8em;
 		}
 		.mode-long {
