@@ -9,7 +9,7 @@ const isAgent = pathname.startsWith('/agent');
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
+		<div class="internal-links" aria-hidden={isAgent ? "true" : undefined}>
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
@@ -147,7 +147,8 @@ const isAgent = pathname.startsWith('/agent');
 		border-bottom: 1px solid rgba(var(--border-rgb), 0.65);
 	}
 	:global(body[data-mode="agent"]) .internal-links {
-		display: none;
+		visibility: hidden;
+		pointer-events: none;
 	}
 	:global(body[data-mode="agent"]) .mode-toggle {
 		background: transparent;
