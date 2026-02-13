@@ -58,13 +58,13 @@ const isAgent = pathname.startsWith('/agent');
 		max-width: 100%;
 		flex-wrap: wrap;
 	}
-	nav a {
+	.internal-links a {
 		padding: 0.9em 0.5em;
 		color: var(--text-strong);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
-	nav a.active {
+	.internal-links a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
@@ -85,14 +85,15 @@ const isAgent = pathname.startsWith('/agent');
 		overflow: hidden;
 		background: rgba(var(--surface-2-rgb), 0.6);
 	}
-	.mode-btn {
+	.mode-toggle a {
 		padding: 0.45rem 0.7rem;
 		font-size: 0.82em;
 		border-bottom: 0;
+		text-decoration: none;
 		color: rgba(var(--text-rgb), 0.86);
 		white-space: nowrap;
 	}
-	.mode-btn.active {
+	.mode-toggle a.active {
 		background: rgba(var(--accent-rgb), 12%);
 		color: var(--accent);
 	}
@@ -103,7 +104,7 @@ const isAgent = pathname.startsWith('/agent');
 		nav {
 			justify-content: flex-start;
 		}
-		nav a {
+		.internal-links a {
 			padding: 0.75em 0.45em;
 		}
 		.internal-links {
@@ -120,7 +121,7 @@ const isAgent = pathname.startsWith('/agent');
 		.mode-label {
 			display: none;
 		}
-		.mode-btn {
+		.mode-toggle a {
 			flex: 1;
 			text-align: center;
 			padding: 0.45rem 0.55rem;
