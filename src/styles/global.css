@@ -14,8 +14,9 @@
 	--gray-dark: 34, 41, 57;
 
 	--surface: #ffffff;
-	--surface-2: #f7f8fb;
-	--surface-2-rgb: 247, 248, 251;
+	/* Neutral surfaces (avoid blue-tinted backgrounds) */
+	--surface-2: #f6f6f7;
+	--surface-2-rgb: 246, 246, 247;
 	--text: rgb(var(--gray-dark));
 	--text-rgb: 34, 41, 57;
 	--text-strong: rgb(var(--black));
@@ -30,15 +31,16 @@
 @media (prefers-color-scheme: dark) {
 	:root {
 		--surface: #0b0f17;
-		--surface-2: #0f1522;
-		--surface-2-rgb: 15, 21, 34;
+		/* Neutral dark surfaces (avoid blue cast) */
+		--surface-2: #121318;
+		--surface-2-rgb: 18, 19, 24;
 		--text: rgba(255, 255, 255, 0.88);
 		--text-rgb: 255, 255, 255;
 		--text-strong: rgba(255, 255, 255, 0.96);
 		--muted-rgb: 178, 191, 220;
 		--border-rgb: 34, 41, 57;
 		--gray-light: 34, 41, 57;
-		--gray-gradient: rgba(15, 21, 34, 85%), rgba(11, 15, 23, 100%);
+		--gray-gradient: rgba(18, 19, 24, 85%), rgba(11, 15, 23, 100%);
 		--box-shadow:
 			0 2px 10px rgba(0, 0, 0, 35%), 0 8px 24px rgba(0, 0, 0, 45%), 0 16px 32px
 			rgba(0, 0, 0, 45%);
