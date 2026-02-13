@@ -74,9 +74,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-color: var(--surface);
-	background-size: 100% 520px;
+	background: var(--surface);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: var(--text);
@@ -220,6 +218,21 @@ hr {
 	pre {
 		max-width: 100%;
 	}
+}
+
+/* Agent mode: less decoration, more scan-ability */
+body[data-mode="agent"] {
+	background: var(--surface);
+}
+body[data-mode="agent"] main {
+	padding-top: 1.6em;
+}
+body[data-mode="agent"] .block {
+	background: transparent;
+	border-radius: 12px;
+}
+body[data-mode="agent"] .mode-toggle {
+	background: transparent;
 }
 
 .sr-only {
