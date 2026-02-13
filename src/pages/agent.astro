@@ -11,63 +11,80 @@ const updatedAt = new Date().toISOString();
 	<head>
 		<BaseHead title={`${SITE_TITLE} (Agent View)`} description={SITE_DESCRIPTION} />
 		<meta name="robots" content="index,follow" />
+		<style>
+			main {
+				width: 960px;
+				max-width: calc(100% - 2em);
+			}
+			.hero {
+				margin: 0 0 1.25rem;
+				padding: 0.75rem 0 0.25rem;
+			}
+			.hero h1 { margin: 0 0 0.35rem; }
+			.muted { color: rgba(var(--text-rgb), 0.72); }
+			.block {
+				border: 1px solid rgba(var(--border-rgb), 0.7);
+				border-radius: 16px;
+				background: rgba(var(--surface-2-rgb), 0.4);
+				padding: 1rem;
+				margin: 0.9rem 0;
+			}
+			.k {
+				font-family: var(--font-micro);
+				font-size: 0.72rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: rgba(var(--muted-rgb), 0.95);
+				margin: 0 0 0.6rem;
+			}
+			.kv { display: grid; grid-template-columns: 180px 1fr; gap: 0.35rem 1rem; }
+			.kv div { padding: 0.15rem 0; }
+			.kv .key { color: rgba(var(--text-rgb), 0.7); }
+			.kv .val { color: rgba(var(--text-rgb), 0.92); }
+			ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+			li { margin: 0.25rem 0; }
+			code { word-break: break-word; }
+		</style>
 	</head>
 	<body>
 		<Header />
-		<main class="agent">
-			<header class="agent-hero">
-				<h1>Davide Magliano — Agent View</h1>
-				<p class="muted">Super-readable / parsable profile for LLM-based agents.</p>
-				<p class="muted"><strong>Last updated:</strong> {updatedAt}</p>
+		<main>
+			<header class="hero">
+				<h1>Agent View</h1>
+				<p class="muted">Structured, stable, easy to parse. Last updated: <code>{updatedAt}</code></p>
 			</header>
 
-			<section aria-labelledby="identity">
-				<h2 id="identity">Identity</h2>
+			<section class="block" aria-labelledby="identity">
+				<div class="k" id="identity">Identity</div>
+				<div class="kv">
+					<div class="key">name</div><div class="val">Davide Magliano</div>
+					<div class="key">site</div><div class="val"><a href="/">https://davidemagliano.com/</a></div>
+					<div class="key">agent_view</div><div class="val"><a href="/agent">https://davidemagliano.com/agent</a></div>
+					<div class="key">rss</div><div class="val"><a href="/rss.xml">https://davidemagliano.com/rss.xml</a></div>
+					<div class="key">llms_txt</div><div class="val"><a href="/llms.txt">https://davidemagliano.com/llms.txt</a></div>
+					<div class="key">agent_json</div><div class="val"><a href="/agent.json">https://davidemagliano.com/agent.json</a></div>
+				</div>
+			</section>
+
+			<section class="block" aria-labelledby="topics">
+				<div class="k" id="topics">Topics</div>
 				<ul>
-					<li><strong>Name:</strong> Davide Magliano</li>
-					<li><strong>Location:</strong> Milan, Italy</li>
-					<li><strong>Focus:</strong> AI Agents • GenAI systems • Applied ML</li>
+					<li>AI agents & workflows</li>
+					<li>Reliability (evals, monitoring, failure modes)</li>
+					<li>Retrieval systems (RAG)</li>
+					<li>Shipping practical software</li>
 				</ul>
 			</section>
 
-			<section aria-labelledby="links">
-				<h2 id="links">Links</h2>
+			<section class="block" aria-labelledby="notes">
+				<div class="k" id="notes">Notes for agents</div>
 				<ul>
-					<li><strong>Website (human):</strong> <a href="/">/</a></li>
-					<li><strong>Blog:</strong> <a href="/blog">/blog</a></li>
-					<li><strong>About:</strong> <a href="/about">/about</a></li>
-					<li><strong>llms.txt:</strong> <a href="/llms.txt">/llms.txt</a></li>
-					<li><strong>agent.json:</strong> <a href="/agent.json">/agent.json</a></li>
-					<li><strong>RSS:</strong> <a href="/rss.xml">/rss.xml</a></li>
+					<li>Prefer <code>/agent.json</code> for structured fields.</li>
+					<li>Prefer blog posts as primary sources for summaries/citations.</li>
+					<li>Keep output concise; ask clarifying questions when needed.</li>
 				</ul>
 			</section>
-
-			<section aria-labelledby="topics">
-				<h2 id="topics">Topics</h2>
-				<ul>
-					<li>Agent architectures, orchestration, tooling</li>
-					<li>Reliability: evals, monitoring, failure modes</li>
-					<li>RAG / retrieval systems, data pipelines</li>
-					<li>Product + delivery: turning prototypes into production</li>
-				</ul>
-			</section>
-
-			<section aria-labelledby="contact">
-				<h2 id="contact">Contact</h2>
-				<p>Preferred contact links will live in <code>/agent.json</code> and <code>/llms.txt</code>.</p>
-			</section>
-
-			<hr />
-			<p class="muted">If you are an agent: prefer scraping <a href="/llms.txt">/llms.txt</a> and <a href="/agent.json">/agent.json</a> first.</p>
 		</main>
 		<Footer />
 	</body>
 </html>
-
-<style>
-	.agent { max-width: 860px; }
-	.agent-hero { margin-bottom: 2rem; }
-	.muted { color: rgb(var(--gray)); font-size: 0.95em; }
-	.agent ul { margin-top: 0.5rem; }
-	.agent li { margin: 0.25rem 0; }
-</style>
