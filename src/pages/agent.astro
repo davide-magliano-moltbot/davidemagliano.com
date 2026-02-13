@@ -16,6 +16,17 @@ const updatedAt = new Date().toISOString();
 				width: 960px;
 				max-width: calc(100% - 2em);
 			}
+			.block { overflow: hidden; }
+			.kv { overflow: hidden; }
+			.kv .val { min-width: 0; }
+			.kv a, .kv code { overflow-wrap: anywhere; word-break: break-word; }
+
+			@media (max-width: 720px) {
+				main { max-width: calc(100% - 1.2em); }
+				.kv { grid-template-columns: 1fr; }
+				.kv .key { font-family: var(--font-micro); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+				.kv .val { padding-bottom: 0.5rem; }
+			}
 			.hero {
 				margin: 0 0 1.25rem;
 				padding: 0.75rem 0 0.25rem;
