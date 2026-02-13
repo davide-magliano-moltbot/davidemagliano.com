@@ -20,14 +20,8 @@ const { title = 'TAKEAWAY', summary, points = [] } = Astro.props;
 		padding: 1.05rem 1.05rem 0.95rem;
 		border: 1px solid rgba(var(--border-rgb), 0.7);
 		border-radius: 14px;
-		background:
-			linear-gradient(
-				135deg,
-				rgba(var(--accent-rgb), 0.10),
-				rgba(var(--accent-rgb), 0.03) 45%,
-				rgba(255, 255, 255, 0) 100%
-			);
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+		background: rgba(var(--surface-2-rgb), 0.65);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
 	}
 	.takeaway__kicker {
 		font-family: var(--font-micro);
@@ -53,13 +47,7 @@ const { title = 'TAKEAWAY', summary, points = [] } = Astro.props;
 	}
 	@media (prefers-color-scheme: dark) {
 		.takeaway {
-			background:
-				linear-gradient(
-					135deg,
-					rgba(var(--accent-rgb), 0.16),
-					rgba(var(--accent-rgb), 0.06) 45%,
-					rgba(0, 0, 0, 0) 100%
-				);
+			background: rgba(var(--surface-2-rgb), 0.55);
 		}
 	}
 </style>

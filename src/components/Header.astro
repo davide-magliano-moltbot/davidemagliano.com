@@ -17,9 +17,15 @@ const isAgent = pathname.startsWith('/agent');
 		<div class="mode">
 			<span class="mode-label">View:</span>
 			<div class="mode-toggle" role="group" aria-label="Select view mode">
-				<a class:list={["mode-btn", !isAgent && "active"].filter(Boolean)} href="/">I am a human</a>
-				<a class:list={["mode-btn", isAgent && "active"].filter(Boolean)} href="/agent">I am an agent</a>
-			</div>
+			<a class:list={["mode-btn", !isAgent && "active"].filter(Boolean)} href="/">
+				<span class="mode-long">I am a human</span>
+				<span class="mode-short" aria-hidden="true">Human</span>
+			</a>
+			<a class:list={["mode-btn", isAgent && "active"].filter(Boolean)} href="/agent">
+				<span class="mode-long">I am an agent</span>
+				<span class="mode-short" aria-hidden="true">Agent</span>
+			</a>
+		</div>
 		</div>
 	</nav>
 </header>
@@ -57,9 +63,11 @@ const isAgent = pathname.startsWith('/agent');
 	}
 	.mode {
 		max-width: 100%;
+		min-width: 0;
 	}
 	.mode-toggle {
 		max-width: 100%;
+		min-width: 0;
 		flex-wrap: wrap;
 	}
 	.internal-links a {
@@ -96,7 +104,11 @@ const isAgent = pathname.startsWith('/agent');
 		text-decoration: none;
 		color: rgba(var(--text-rgb), 0.86);
 		white-space: nowrap;
+		min-width: 0;
 		transition: background 160ms ease, color 160ms ease;
+	}
+	.mode-short {
+		display: none;
 	}
 	.mode-toggle a.active {
 		/* Keep the state obvious without washing the header in blue */
@@ -144,7 +156,14 @@ const isAgent = pathname.startsWith('/agent');
 		.mode-toggle a {
 			flex: 1;
 			text-align: center;
-			padding: 0.45rem 0.55rem;
+			padding: 0.45rem 0.5rem;
+			font-size: 0.8em;
+		}
+		.mode-long {
+			display: none;
+		}
+		.mode-short {
+			display: inline;
 		}
 	}
 </style>
