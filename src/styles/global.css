@@ -15,8 +15,12 @@
 
 	--surface: #ffffff;
 	--surface-2: #f7f8fb;
+	--surface-2-rgb: 247, 248, 251;
 	--text: rgb(var(--gray-dark));
+	--text-rgb: 34, 41, 57;
 	--text-strong: rgb(var(--black));
+	--muted-rgb: 96, 115, 159;
+	--border-rgb: 229, 233, 240;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
@@ -27,8 +31,12 @@
 	:root {
 		--surface: #0b0f17;
 		--surface-2: #0f1522;
+		--surface-2-rgb: 15, 21, 34;
 		--text: rgba(255, 255, 255, 0.88);
+		--text-rgb: 255, 255, 255;
 		--text-strong: rgba(255, 255, 255, 0.96);
+		--muted-rgb: 178, 191, 220;
+		--border-rgb: 34, 41, 57;
 		--gray-light: 34, 41, 57;
 		--gray-gradient: rgba(15, 21, 34, 85%), rgba(11, 15, 23, 100%);
 		--box-shadow:
@@ -50,8 +58,16 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+/* Font stacks (set to your preferred fonts; will fall back gracefully until fonts are installed) */
+:root {
+	--font-display: "Signifier", "Reckless Standard", "Financier Display", Georgia, serif;
+	--font-body: "Geist", "TWK Lausanne", "Saans", "Innovator Grotesk", "Die Grotesk", Atkinson, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+	--font-mono: "Geist Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	--font-micro: "Geist Pixel", var(--font-body);
+}
 body {
-	font-family: "Atkinson", sans-serif;
+	font-family: var(--font-body);
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -81,19 +97,27 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: 3.0em;
+	font-family: var(--font-display);
+	letter-spacing: -0.02em;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 2.15em;
+	font-family: var(--font-display);
+	letter-spacing: -0.015em;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.6em;
+	font-family: var(--font-display);
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.25em;
+	font-family: var(--font-body);
+	letter-spacing: -0.01em;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 1.1em;
+	font-family: var(--font-body);
 }
 strong,
 b {
@@ -127,9 +151,11 @@ img {
 	border-radius: 8px;
 }
 code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 4px;
+	padding: 2px 6px;
+	background-color: rgba(var(--border-rgb), 0.75);
+	border-radius: 6px;
+	font-family: var(--font-mono);
+	font-size: 0.95em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -138,17 +164,21 @@ code {
 	}
 }
 pre {
-	padding: 1.5em;
-	border-radius: 8px;
+	padding: 1.25em;
+	border-radius: 14px;
+	border: 1px solid rgba(var(--border-rgb), 0.7);
+	background: rgba(var(--surface-2-rgb), 0.65);
+	overflow: auto;
 }
 pre > code {
 	all: unset;
 }
 blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
+	border-left: 3px solid rgba(var(--accent-rgb), 0.8);
+	padding: 0.15rem 0 0.15rem 1rem;
 	margin: 0;
-	font-size: 1.333em;
+	font-size: 1.1em;
+	color: rgba(var(--text-rgb), 0.88);
 }
 hr {
 	border: none;

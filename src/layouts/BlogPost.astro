@@ -5,10 +5,11 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import Takeaway from '../components/Takeaway.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, takeaway, keyPoints, tags } = Astro.props;
 ---
 
 <html lang="en">
@@ -22,35 +23,73 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.hero-image {
 				width: 100%;
+				margin-top: 1rem;
 			}
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 12px;
+				border-radius: 16px;
 				box-shadow: var(--box-shadow);
+				border: 1px solid rgba(var(--border-rgb), 0.7);
 			}
 			.prose {
-				width: 720px;
+				width: 820px;
 				max-width: calc(100% - 2em);
 				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+				padding: 1.25em 1em 2.5em;
+				color: var(--text);
 			}
 			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
+				margin: 0 0 1.25em;
+				padding: 1.25em 0 0.5em;
+				text-align: left;
+			}
+			.kicker {
+				font-family: var(--font-micro);
+				font-size: 0.78rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: rgba(var(--muted-rgb), 0.95);
+				display: flex;
+				gap: 0.75rem;
+				flex-wrap: wrap;
+				align-items: baseline;
+			}
+			.kicker .dot {
+				opacity: 0.6;
 			}
 			.title h1 {
-				margin: 0 0 0.5em 0;
+				font-family: var(--font-display);
+				font-weight: 600;
+				letter-spacing: -0.02em;
+				margin: 0.45rem 0 0.2rem;
+				line-height: 1.05;
 			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+			.subtitle {
+				margin: 0.25rem 0 0;
+				color: rgba(var(--text-rgb), 0.78);
+				max-width: 70ch;
 			}
-			.last-updated-on {
-				font-style: italic;
+			.tags {
+				display: flex;
+				gap: 0.4rem;
+				flex-wrap: wrap;
+			}
+			.tag {
+				font-family: var(--font-micro);
+				font-size: 0.72rem;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				padding: 0.25rem 0.5rem;
+				border-radius: 999px;
+				border: 1px solid rgba(var(--border-rgb), 0.7);
+				background: rgba(var(--surface-2-rgb), 0.55);
+				color: rgba(var(--text-rgb), 0.8);
+			}
+			.rule {
+				margin: 1.25rem 0 0;
+				height: 1px;
+				background: rgba(var(--border-rgb), 0.8);
 			}
 		</style>
 	</head>
@@ -63,20 +102,29 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 				</div>
 				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+					<header class="title">
+						<div class="kicker">
+							<span><FormattedDate date={pubDate} /></span>
+							{updatedDate && (
+								<>
+									<span class="dot">·</span>
+									<span>Updated <FormattedDate date={updatedDate} /></span>
+								</>
+							)}
 						</div>
 						<h1>{title}</h1>
-						<hr />
-					</div>
+						{description && <p class="subtitle">{description}</p>}
+						{tags?.length ? (
+							<div class="tags" aria-label="Post tags">
+								{tags.map((t) => (
+									<span class="tag">{t}</span>
+								))}
+							</div>
+						) : null}
+						<div class="rule" aria-hidden="true"></div>
+					</header>
+
+					{takeaway && <Takeaway summary={takeaway} points={keyPoints ?? []} />}
 					<slot />
 				</div>
 			</article>
