@@ -131,9 +131,10 @@ const isAgent = pathname.startsWith('/agent');
 		display: none;
 	}
 	.mode-toggle a.active {
-		/* Keep the state obvious without washing the header in blue */
-		background: rgba(var(--text-rgb), 0.06);
+		/* Active state: consistent across Human + Agent (underline selector) */
+		background: transparent;
 		color: var(--text-strong);
+		box-shadow: inset 0 -2px 0 rgba(var(--text-rgb), 0.65);
 	}
 	.mode-toggle a:focus-visible {
 		outline: 2px solid rgba(var(--accent-rgb), 0.7);
@@ -152,11 +153,7 @@ const isAgent = pathname.startsWith('/agent');
 		background: transparent;
 		border-color: rgba(var(--border-rgb), 0.55);
 	}
-	:global(body[data-mode="agent"]) .mode-toggle a.active {
-		background: transparent;
-		color: var(--text-strong);
-		box-shadow: inset 0 -2px 0 rgba(var(--text-rgb), 0.65);
-	}
+	/* Agent mode: active toggle state inherits base styles (kept consistent with Human). */
 	@media (max-width: 720px) {
 		header {
 			/* Respect device safe-areas; avoid the mode toggle getting clipped */
