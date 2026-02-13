@@ -246,6 +246,15 @@ body[data-mode="agent"] .block {
 body[data-mode="agent"] .mode-toggle {
 	background: transparent;
 }
+/* Agent mode links: neutral + utilitarian (avoid blue UI accents) */
+body[data-mode="agent"] a {
+	color: rgba(var(--text-rgb), 0.9);
+	text-decoration-color: rgba(var(--text-rgb), 0.25);
+}
+body[data-mode="agent"] a:hover {
+	color: var(--text-strong);
+	text-decoration-color: rgba(var(--text-rgb), 0.55);
+}
 
 .sr-only {
 	border: 0;
