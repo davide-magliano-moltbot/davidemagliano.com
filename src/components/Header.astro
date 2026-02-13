@@ -142,31 +142,39 @@ const isAgent = pathname.startsWith('/agent');
 		header {
 			padding: 0 0.6em;
 		}
+		/* Make the header feel intentional on mobile:
+		   title (left) + mode toggle (right), then nav links */
 		nav {
-			justify-content: flex-start;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			align-items: center;
+			justify-content: initial;
+			gap: 0.5rem 0.75rem;
+		}
+		h2 {
+			grid-column: 1;
+		}
+		.mode {
+			grid-column: 2;
+			justify-self: end;
+			width: auto;
+		}
+		.internal-links {
+			grid-column: 1 / -1;
+			width: 100%;
 		}
 		.internal-links a {
 			padding: 0.75em 0.45em;
 		}
-		.internal-links {
-			order: 3;
-			width: 100%;
-		}
-		.mode {
-			order: 2;
-			width: 100%;
-		}
 		.mode-toggle {
-			width: 100%;
-			display: flex;
+			width: auto;
+			display: inline-flex;
 		}
 		.mode-label {
 			display: none;
 		}
 		.mode-toggle a {
-			flex: 1;
-			text-align: center;
-			padding: 0.45rem 0.5rem;
+			padding: 0.42rem 0.55rem;
 			font-size: 0.8em;
 		}
 		.mode-long {
