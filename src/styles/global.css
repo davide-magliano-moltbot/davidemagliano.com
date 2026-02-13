@@ -59,12 +59,12 @@
 	font-display: swap;
 }
 
-/* Font stacks (set to your preferred fonts; will fall back gracefully until fonts are installed) */
+/* Font stacks (OSS defaults; can be swapped later for licensed fonts) */
 :root {
-	--font-display: "Signifier", "Reckless Standard", "Financier Display", Georgia, serif;
-	--font-body: "Geist", "TWK Lausanne", "Saans", "Innovator Grotesk", "Die Grotesk", Atkinson, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-	--font-mono: "Geist Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-	--font-micro: "Geist Pixel", var(--font-body);
+	--font-display: "Fraunces", Georgia, serif;
+	--font-body: "IBM Plex Sans", Atkinson, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	--font-micro: var(--font-mono);
 }
 body {
 	font-family: var(--font-body);
@@ -81,7 +81,7 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
+	width: 860px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
@@ -125,15 +125,19 @@ b {
 }
 a {
 	color: var(--accent);
+	text-decoration-color: rgba(var(--accent-rgb), 0.35);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
 }
 a:hover {
 	color: var(--accent);
+	text-decoration-color: rgba(var(--accent-rgb), 0.75);
 }
 p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1.25em;
 }
 textarea {
 	width: 100%;
@@ -172,6 +176,8 @@ pre {
 }
 pre > code {
 	all: unset;
+	font-family: var(--font-mono);
+	font-size: 0.95em;
 }
 blockquote {
 	border-left: 3px solid rgba(var(--accent-rgb), 0.8);
@@ -195,7 +201,7 @@ hr {
 		font-size: 18px;
 	}
 	main {
-		padding: 1em;
+		padding: 1.2em 1em;
 	}
 }
 
