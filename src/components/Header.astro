@@ -57,6 +57,8 @@ const isAgent = pathname.startsWith('/agent');
 		gap: 0.75rem 1rem;
 		flex-wrap: wrap;
 		max-width: 100%;
+		/* Keep perceived header size consistent across Human/Agent modes */
+		min-height: 52px;
 	}
 	/* Prevent the title from forcing horizontal overflow on narrow screens */
 	h2 { min-width: 0; }
