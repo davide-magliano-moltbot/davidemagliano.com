@@ -36,6 +36,7 @@ const isAgent = pathname.startsWith('/agent');
 		padding: 0 1em;
 		background: var(--surface);
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		overflow-x: clip;
 	}
 	h2 {
 		margin: 0;
@@ -120,9 +121,17 @@ const isAgent = pathname.startsWith('/agent');
 		outline-offset: 2px;
 	}
 
-	/* Agent mode: make the selector feel utilitarian and minimal */
+	/* Agent mode: make the whole header feel utilitarian and minimal */
+	:global(body[data-mode="agent"]) header {
+		box-shadow: none;
+		border-bottom: 1px solid rgba(var(--border-rgb), 0.65);
+	}
+	:global(body[data-mode="agent"]) .internal-links {
+		display: none;
+	}
 	:global(body[data-mode="agent"]) .mode-toggle {
 		background: transparent;
+		border-color: rgba(var(--border-rgb), 0.55);
 	}
 	:global(body[data-mode="agent"]) .mode-toggle a.active {
 		background: transparent;
@@ -149,6 +158,7 @@ const isAgent = pathname.startsWith('/agent');
 		}
 		.mode-toggle {
 			width: 100%;
+			display: flex;
 		}
 		.mode-label {
 			display: none;

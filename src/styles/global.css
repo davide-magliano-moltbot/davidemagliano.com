@@ -5,6 +5,7 @@
  */
 
 :root {
+	color-scheme: light dark;
 	--accent: #6ea8ff;
 	--accent-dark: #2d6cff;
 	--accent-rgb: 110, 168, 255;
