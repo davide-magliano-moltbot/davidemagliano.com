@@ -85,10 +85,10 @@ body {
 	font-weight: 400;
 }
 main {
-	width: 860px;
-	max-width: calc(100% - 2em);
+	width: min(860px, calc(100% - 2em));
+	max-width: 860px;
 	margin: auto;
-	padding: 2.5em 1em;
+	padding: 2.25em 0;
 }
 h1,
 h2,
@@ -211,10 +211,11 @@ hr {
 }
 @media (max-width: 720px) {
 	body {
-		font-size: 16.75px;
+		font-size: 16.5px;
 	}
 	main {
-		padding: 1.1em 0.95em;
+		width: calc(100% - 1.9em);
+		padding: 1.15em 0;
 	}
 	pre {
 		max-width: 100%;
