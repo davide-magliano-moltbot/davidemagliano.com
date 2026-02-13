@@ -6,23 +6,25 @@
 
 :root {
 	color-scheme: light dark;
-	--accent: #6ea8ff;
-	--accent-dark: #2d6cff;
-	--accent-rgb: 110, 168, 255;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
+	/* Neutral/warm accent (avoid the default brand-blue feel) */
+	--accent: #c9a46b;
+	--accent-dark: #b58b4b;
+	--accent-rgb: 201, 164, 107;
+	/* Keep the whole palette neutral (no blue cast) */
+	--black: 15, 16, 18;
+	--gray: 112, 116, 122;
+	--gray-light: 233, 234, 236;
+	--gray-dark: 32, 34, 38;
 
 	--surface: #ffffff;
 	/* Neutral surfaces (avoid blue-tinted backgrounds) */
 	--surface-2: #f6f6f7;
 	--surface-2-rgb: 246, 246, 247;
 	--text: rgb(var(--gray-dark));
-	--text-rgb: 34, 41, 57;
+	--text-rgb: 32, 34, 38;
 	--text-strong: rgb(var(--black));
-	--muted-rgb: 96, 115, 159;
-	--border-rgb: 229, 233, 240;
+	--muted-rgb: 112, 116, 122;
+	--border-rgb: 233, 234, 236;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
