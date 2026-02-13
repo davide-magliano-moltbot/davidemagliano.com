@@ -33,17 +33,18 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		/* Dark mode: keep it neutral (no blue cast) */
-		--surface: #0e0f11;
-		--surface-2: #151619;
-		--surface-2-rgb: 21, 22, 25;
+		/* Dark mode: keep it *neutral* (no blue cast) */
+		--surface: #0b0b0c;
+		--surface-2: #111112;
+		--surface-2-rgb: 17, 17, 18;
 		--text: rgba(255, 255, 255, 0.88);
 		--text-rgb: 255, 255, 255;
 		--text-strong: rgba(255, 255, 255, 0.96);
-		--muted-rgb: 176, 182, 192;
-		--border-rgb: 44, 46, 52;
-		--gray-light: 44, 46, 52;
-		--gray-gradient: rgba(21, 22, 25, 90%), rgba(14, 15, 17, 100%);
+		/* Muted + borders shifted to neutral grays (avoid cool/blue tint) */
+		--muted-rgb: 170, 170, 170;
+		--border-rgb: 40, 40, 42;
+		--gray-light: 40, 40, 42;
+		--gray-gradient: rgba(17, 17, 18, 95%), rgba(11, 11, 12, 100%);
 		--box-shadow:
 			0 2px 10px rgba(0, 0, 0, 35%), 0 8px 24px rgba(0, 0, 0, 45%), 0 16px 32px
 			rgba(0, 0, 0, 45%);

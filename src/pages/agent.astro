@@ -18,8 +18,15 @@ const updatedAt = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
 			}
 			.block { overflow: hidden; }
 			.kv { overflow: hidden; }
-			.kv .val { min-width: 0; }
-			.kv a, .kv code { overflow-wrap: anywhere; word-break: break-word; }
+			/* URLs are better as single tokens for agents: allow horizontal scroll instead of ugly wraps */
+			.kv .val {
+				min-width: 0;
+				overflow-x: auto;
+				overflow-y: hidden;
+				-webkit-overflow-scrolling: touch;
+			}
+			.kv a { white-space: nowrap; overflow-wrap: normal; word-break: normal; }
+			.kv code { overflow-wrap: break-word; word-break: break-word; }
 
 			@media (max-width: 720px) {
 				main { max-width: calc(100% - 1.2em); }
