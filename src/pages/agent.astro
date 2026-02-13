@@ -23,7 +23,8 @@ const updatedAt = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
 
 			@media (max-width: 720px) {
 				main { max-width: calc(100% - 1.2em); }
-				.kv { grid-template-columns: 1fr; }
+				/* Keep key/value aligned without forcing extreme wrapping */
+				.kv { grid-template-columns: 128px 1fr; }
 				.kv .key { font-family: var(--font-micro); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
 				.kv .val { padding-bottom: 0.5rem; }
 			}
