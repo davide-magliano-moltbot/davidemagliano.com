@@ -56,6 +56,17 @@ const isAgent = pathname.startsWith('/agent');
 		justify-content: space-between;
 		gap: 0.75rem 1rem;
 		flex-wrap: wrap;
+		max-width: 100%;
+	}
+	/* Prevent the title from forcing horizontal overflow on narrow screens */
+	h2 { min-width: 0; }
+	h2 a,
+	h2 a.active {
+		display: block;
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	.internal-links {
 		display: flex;
@@ -148,16 +159,19 @@ const isAgent = pathname.startsWith('/agent');
 	}
 	@media (max-width: 720px) {
 		header {
-			padding: 0 0.6em;
+			/* Respect device safe-areas; avoid the mode toggle getting clipped */
+			padding-left: max(0.6em, env(safe-area-inset-left));
+			padding-right: max(0.6em, env(safe-area-inset-right));
 		}
 		/* Make the header feel intentional on mobile:
 		   title (left) + mode toggle (right), then nav links */
 		nav {
 			display: grid;
-			grid-template-columns: 1fr auto;
+			grid-template-columns: minmax(0, 1fr) auto;
 			align-items: center;
 			justify-content: initial;
 			gap: 0.5rem 0.75rem;
+			max-width: 100%;
 		}
 		h2 {
 			grid-column: 1;
