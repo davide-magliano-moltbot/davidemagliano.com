@@ -49,6 +49,14 @@ const isAgent = pathname.startsWith('/agent');
 	.internal-links {
 		display: flex;
 		flex-wrap: wrap;
+		max-width: 100%;
+	}
+	.mode {
+		max-width: 100%;
+	}
+	.mode-toggle {
+		max-width: 100%;
+		flex-wrap: wrap;
 	}
 	nav a {
 		padding: 0.9em 0.5em;
@@ -92,14 +100,30 @@ const isAgent = pathname.startsWith('/agent');
 		header {
 			padding: 0 0.6em;
 		}
+		nav {
+			justify-content: flex-start;
+		}
 		nav a {
 			padding: 0.75em 0.45em;
+		}
+		.internal-links {
+			order: 3;
+			width: 100%;
+		}
+		.mode {
+			order: 2;
+			width: 100%;
+		}
+		.mode-toggle {
+			width: 100%;
 		}
 		.mode-label {
 			display: none;
 		}
 		.mode-btn {
-			padding: 0.4rem 0.55rem;
+			flex: 1;
+			text-align: center;
+			padding: 0.45rem 0.55rem;
 		}
 	}
 </style>

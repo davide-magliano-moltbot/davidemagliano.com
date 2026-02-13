@@ -61,13 +61,13 @@
 
 /* Font stacks (OSS defaults; can be swapped later for licensed fonts) */
 :root {
-	--font-display: "Fraunces", Georgia, serif;
-	--font-body: "IBM Plex Sans", Atkinson, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
 	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	--font-body: var(--font-mono);
+	--font-display: var(--font-mono);
 	--font-micro: var(--font-mono);
 }
 * { box-sizing: border-box; }
-html, body { width: 100%; overflow-x: hidden; }
+html, body { width: 100%; overflow-x: clip; }
 
 body {
 	font-family: var(--font-body);
@@ -80,8 +80,9 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: var(--text);
-	font-size: 18px;
+	font-size: 16.75px;
 	line-height: 1.75;
+	font-weight: 400;
 }
 main {
 	width: 860px;
@@ -124,7 +125,7 @@ h5 {
 }
 strong,
 b {
-	font-weight: 700;
+	font-weight: 600;
 }
 a {
 	color: var(--accent);
@@ -160,6 +161,10 @@ img {
 
 pre, code, a {
 	max-width: 100%;
+}
+a {
+	overflow-wrap: anywhere;
+	word-break: break-word;
 }
 code {
 	padding: 2px 6px;
