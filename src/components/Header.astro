@@ -102,7 +102,10 @@ const isAgent = pathname.startsWith('/agent');
 		gap: 0.5rem;
 	}
 	.mode-label {
-		font-size: 0.85em;
+		font-size: 0.72rem;
+		font-family: var(--font-micro);
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
 		color: rgba(var(--muted-rgb), 0.95);
 	}
 	.mode-toggle {
@@ -133,7 +136,17 @@ const isAgent = pathname.startsWith('/agent');
 		transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 	}
 	.mode-short {
-		display: inline;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.36rem;
+	}
+	.mode-short::before {
+		content: "";
+		width: 0.38rem;
+		height: 0.38rem;
+		border-radius: 999px;
+		background: rgba(var(--text-rgb), 0.28);
+		transition: background 160ms ease;
 	}
 	.mode-long {
 		display: none;
@@ -143,6 +156,9 @@ const isAgent = pathname.startsWith('/agent');
 		background: var(--surface);
 		color: var(--text-strong);
 		box-shadow: 0 1px 0 rgba(var(--black), 0.1), inset 0 0 0 1px rgba(var(--accent-rgb), 0.35);
+	}
+	.mode-toggle a.active .mode-short::before {
+		background: rgba(var(--accent-rgb), 0.95);
 	}
 	.mode-toggle a:focus-visible {
 		outline: 2px solid rgba(var(--accent-rgb), 0.7);
@@ -216,9 +232,13 @@ const isAgent = pathname.startsWith('/agent');
 			display: none;
 		}
 		.mode-toggle a {
-			padding: 0.42rem 0.6rem;
+			padding: 0.42rem 0.68rem;
 			min-height: 38px;
-			font-size: 0.8em;
+			font-size: 0.78rem;
+		}
+		.mode-short::before {
+			width: 0.34rem;
+			height: 0.34rem;
 		}
 	}
 </style>
