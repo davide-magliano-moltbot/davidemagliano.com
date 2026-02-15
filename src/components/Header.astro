@@ -109,22 +109,24 @@ const isAgent = pathname.startsWith('/agent');
 		display: inline-flex;
 		border: 1px solid rgba(var(--border-rgb), 0.8);
 		border-radius: 999px;
-		overflow: hidden;
-		background: rgba(var(--surface-2-rgb), 0.55);
+		padding: 3px;
+		gap: 0.2rem;
+		background: rgba(var(--surface-2-rgb), 0.7);
 	}
 	.mode-toggle a {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.5rem 0.75rem;
-		min-height: 40px;
-		font-size: 0.82em;
+		padding: 0.45rem 0.72rem;
+		min-height: 38px;
+		font-size: 0.8em;
+		border-radius: 999px;
 		border-bottom: 0;
 		text-decoration: none;
-		color: rgba(var(--text-rgb), 0.86);
+		color: rgba(var(--text-rgb), 0.82);
 		white-space: nowrap;
 		min-width: 0;
-		transition: background 160ms ease, color 160ms ease;
+		transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 	}
 	.mode-short {
 		display: inline;
@@ -133,10 +135,10 @@ const isAgent = pathname.startsWith('/agent');
 		display: none;
 	}
 	.mode-toggle a.active {
-		/* Active state: consistent across Human + Agent (underline selector) */
-		background: transparent;
+		/* Active state: intentionally segmented, without brand-blue accents */
+		background: var(--surface);
 		color: var(--text-strong);
-		box-shadow: inset 0 -2px 0 rgba(var(--text-rgb), 0.65);
+		box-shadow: 0 1px 0 rgba(var(--black), 0.08), inset 0 0 0 1px rgba(var(--border-rgb), 0.65);
 	}
 	.mode-toggle a:focus-visible {
 		outline: 2px solid rgba(var(--accent-rgb), 0.7);
@@ -156,7 +158,11 @@ const isAgent = pathname.startsWith('/agent');
 		background: transparent;
 		border-color: rgba(var(--border-rgb), 0.55);
 	}
-	/* Agent mode: active toggle state inherits base styles (kept consistent with Human). */
+	:global(body[data-mode="agent"]) .mode-toggle a.active {
+		background: transparent;
+		box-shadow: inset 0 -1px 0 rgba(var(--text-rgb), 0.55);
+	}
+
 	@media (max-width: 720px) {
 		header {
 			/* Respect device safe-areas; avoid the mode toggle getting clipped */

@@ -83,6 +83,7 @@ body {
 	padding: 0;
 	text-align: left;
 	background: var(--surface);
+	background-image: none;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: var(--text);
