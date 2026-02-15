@@ -41,6 +41,13 @@ const latest = posts[0];
 			.quick-links a {
 				text-decoration: none;
 			}
+			.quick-links .cta-link {
+				color: var(--text-strong);
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 0.2em;
+				text-decoration-color: rgba(var(--accent-rgb), 0.45);
+			}
 			.quick-links .sep {
 				margin: 0 0.42rem;
 				opacity: 0.45;
@@ -85,7 +92,7 @@ const latest = posts[0];
 				<h1>Notes on AI agents, systems, and shipping.</h1>
 				<p>A personal site built from chat-first execution with OpenClaw.</p>
 				<p class="quick-links">
-					<a href="/blog">Blog</a><span class="sep">/</span><a href="/about">About</a>
+					<a href="/blog">Blog</a><span class="sep">/</span><a href="/about">About</a><span class="sep">/</span><a class="cta-link" href="mailto:davide.magliano98@gmail.com">Work together</a>
 				</p>
 			</section>
 
