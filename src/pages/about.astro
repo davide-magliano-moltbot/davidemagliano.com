@@ -30,6 +30,23 @@ import { SITE_TITLE } from '../consts';
 			.list li {
 				margin: 0.28rem 0;
 			}
+			.contact {
+				margin: 0.8rem 0 0;
+				padding: 0.85rem 0 0;
+				border-top: 1px solid rgba(var(--border-rgb), 0.8);
+			}
+			.contact h2 {
+				margin: 0;
+				font-size: 1rem;
+				font-weight: 600;
+			}
+			.contact ul {
+				margin: 0.5rem 0 0;
+				padding-left: 1.05rem;
+			}
+			.contact li {
+				margin: 0.28rem 0;
+			}
 		</style>
 	</head>
 	<body data-mode="human">
@@ -43,6 +60,13 @@ import { SITE_TITLE } from '../consts';
 				<li><strong>Writing about:</strong> agents, systems, shipping, and lessons learned.</li>
 				<li><strong>This site:</strong> Astro + GitHub Pages.</li>
 			</ul>
+			<section id="contact" class="contact" aria-labelledby="contact-heading">
+				<h2 id="contact-heading">Contact</h2>
+				<ul>
+					<li><strong>Email:</strong> <a href="mailto:davide.magliano98@gmail.com">davide.magliano98@gmail.com</a></li>
+					<li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/davidemagliano">linkedin.com/in/davidemagliano</a></li>
+				</ul>
+			</section>
 		</main>
 		<Footer />
 	</body>
