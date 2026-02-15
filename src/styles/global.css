@@ -89,7 +89,7 @@ body {
 	overflow-wrap: break-word;
 	color: var(--text);
 	font-size: 16.75px;
-	line-height: 1.72;
+	line-height: 1.66;
 	font-weight: 400;
 }
 main {
@@ -156,7 +156,7 @@ p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 1.25em;
+	margin-bottom: 1em;
 }
 textarea {
 	width: 100%;

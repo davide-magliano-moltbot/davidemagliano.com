@@ -10,44 +10,39 @@ import { SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={`${SITE_TITLE} — About`} description="A minimal personal profile." />
 		<style>
-			.card {
-				border: 1px solid rgba(var(--border-rgb), 0.7);
-				border-radius: 18px;
-				background: rgba(var(--surface-2-rgb), 0.55);
-				padding: 1.15rem 1.15rem 1.05rem;
+			.header {
+				margin: 0 0 0.9rem;
 			}
-			.kicker {
-				font-family: var(--font-micro);
-				font-size: 0.72rem;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: rgba(var(--muted-rgb), 0.95);
+			.header h1 {
+				margin: 0 0 0.35rem;
 			}
-			h1 {
-				margin: 0.5rem 0 0.4rem;
+			.header p {
+				margin: 0;
+				max-width: 68ch;
+				color: rgba(var(--text-rgb), 0.78);
 			}
-			p { max-width: 75ch; }
-			ul {
+			.list {
 				margin: 0.8rem 0 0;
-				padding-left: 1.1rem;
+				padding: 0.85rem 0 0;
+				border-top: 1px solid rgba(var(--border-rgb), 0.8);
+				padding-left: 1.05rem;
 			}
-			li { margin: 0.35rem 0; }
+			.list li {
+				margin: 0.28rem 0;
+			}
 		</style>
 	</head>
 	<body data-mode="human">
 		<Header />
 		<main>
-			<section class="card">
-				<div class="kicker">About</div>
-				<h1>Hi.</h1>
-				<p>
-					I’m Davide. I build software and I like keeping short, practical notes in public.
-				</p>
-				<ul>
-					<li><strong>Writing about:</strong> agents, systems, shipping, and lessons learned.</li>
-					<li><strong>This site:</strong> Astro + GitHub Pages, plus an <a href="/agent">agent-readable view</a>.</li>
-				</ul>
-			</section>
+			<header class="header">
+				<h1>About</h1>
+				<p>I’m Davide. I build software and keep practical notes in public.</p>
+			</header>
+			<ul class="list">
+				<li><strong>Writing about:</strong> agents, systems, shipping, and lessons learned.</li>
+				<li><strong>This site:</strong> Astro + GitHub Pages, plus an <a href="/agent">agent-readable view</a>.</li>
+			</ul>
 		</main>
 		<Footer />
 	</body>

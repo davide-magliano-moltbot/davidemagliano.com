@@ -16,16 +16,17 @@ const { title, description, pubDate, updatedDate, takeaway, keyPoints, tags } = 
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: calc(100% - 2em);
+				width: calc(100% - 1.2em);
 				max-width: 100%;
-				margin: 0;
+				margin: 0 auto;
 			}
 			.prose {
 				width: 760px;
-				max-width: calc(100% - 1.2em);
+				max-width: calc(100% - 0.4em);
 				margin: auto;
-				padding: 1em 0.45em 2.2em;
+				padding: 0.85em 0.2em 1.9em;
 				color: var(--text);
+				line-height: 1.64;
 			}
 			.title {
 				margin: 0 0 1.05em;
@@ -83,6 +84,17 @@ const { title, description, pubDate, updatedDate, takeaway, keyPoints, tags } = 
 				line-height: 1.22;
 				font-weight: 600;
 				margin-top: 1.1rem;
+			}
+			.prose :global(p) {
+				margin: 0 0 0.95em;
+			}
+			.prose :global(ul),
+			.prose :global(ol) {
+				margin: 0.45rem 0 1rem;
+				padding-left: 1.05rem;
+			}
+			.prose :global(li) {
+				margin: 0.18rem 0;
 			}
 		</style>
 	</head>
