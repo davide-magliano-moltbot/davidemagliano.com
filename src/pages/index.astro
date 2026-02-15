@@ -18,57 +18,37 @@ const latest = posts[0];
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			.hero {
-				padding: 1.15rem 0 1.25rem;
-			}
-			.eyebrow {
-				margin: 0;
-				font-family: var(--font-micro);
-				font-size: 0.72rem;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: rgba(var(--muted-rgb), 0.92);
+				padding: 1rem 0 1.1rem;
 			}
 			.hero h1 {
-				margin: 0.45rem 0 0.45rem;
-				font-family: var(--font-display);
+				margin: 0 0 0.45rem;
 				line-height: 1.08;
-				letter-spacing: -0.02em;
-				max-width: 18ch;
+				max-width: 19ch;
 			}
 			.hero p {
 				margin: 0;
-				color: rgba(var(--text-rgb), 0.8);
 				max-width: 68ch;
+				color: rgba(var(--text-rgb), 0.8);
 			}
-			.actions {
-				margin-top: 1rem;
-				display: flex;
-				gap: 0.65rem;
-				flex-wrap: wrap;
-			}
-			.actions a {
+			.quick-links {
+				margin-top: 0.75rem;
 				font-family: var(--font-micro);
 				font-size: 0.72rem;
 				letter-spacing: 0.11em;
 				text-transform: uppercase;
-				padding: 0.5rem 0.85rem;
-				min-height: 42px;
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				border-radius: 999px;
-				border: 1px solid rgba(var(--border-rgb), 0.85);
-				background: rgba(var(--surface-2-rgb), 0.5);
-				text-decoration: none;
-				color: rgba(var(--text-rgb), 0.92);
+				color: rgba(var(--muted-rgb), 0.95);
 			}
-			.actions a:hover {
-				border-color: rgba(var(--accent-rgb), 0.5);
+			.quick-links a {
+				text-decoration: none;
+			}
+			.quick-links .sep {
+				margin: 0 0.42rem;
+				opacity: 0.45;
 			}
 			.latest {
-				margin-top: 1.35rem;
-				padding-top: 1rem;
-				border-top: 1px solid rgba(var(--border-rgb), 0.8);
+				margin-top: 1.15rem;
+				padding-top: 0.9rem;
+				border-top: 1px solid rgba(var(--border-rgb), 0.85);
 			}
 			.latest-label {
 				margin: 0;
@@ -79,25 +59,22 @@ const latest = posts[0];
 				color: rgba(var(--muted-rgb), 0.92);
 			}
 			.latest h2 {
-				margin: 0.45rem 0 0.3rem;
-				font-size: 1.3rem;
-				line-height: 1.2;
+				margin: 0.38rem 0 0.24rem;
+				font-size: 1.16rem;
+				line-height: 1.24;
 			}
 			.latest h2 a {
 				text-decoration: none;
 				color: var(--text-strong);
-			}
-			.latest h2 a:hover {
-				color: var(--accent);
 			}
 			.latest p {
 				margin: 0;
 				color: rgba(var(--text-rgb), 0.75);
 			}
 			.latest .meta {
-				margin-top: 0.45rem;
-				font-size: 0.9rem;
-				color: rgba(var(--text-rgb), 0.62);
+				margin-top: 0.34rem;
+				font-size: 0.88rem;
+				color: rgba(var(--text-rgb), 0.6);
 			}
 		</style>
 	</head>
@@ -105,22 +82,16 @@ const latest = posts[0];
 		<Header />
 		<main>
 			<section class="hero">
-				<p class="eyebrow">Built from WhatsApp</p>
-				<h1>One small site about AI agents, systems, and shipping.</h1>
-				<p>
-					This is a practical notebook. Nothing fancy — just what I’m building, what works, and what breaks.
+				<h1>Notes on AI agents, systems, and shipping.</h1>
+				<p>A personal site built from chat-first execution with OpenClaw.</p>
+				<p class="quick-links">
+					<a href="/blog">Blog</a><span class="sep">/</span><a href="/about">About</a><span class="sep">/</span><a href="/agent">Agent view</a>
 				</p>
-
-				<nav class="actions" aria-label="Quick links">
-					<a href="/blog">Read the blog</a>
-					<a href="/about">About</a>
-					<a href="/agent">Agent view</a>
-				</nav>
 			</section>
 
 			{latest && (
 				<section class="latest" aria-label="Latest post">
-					<p class="latest-label">Latest post</p>
+					<p class="latest-label">Latest</p>
 					<h2><a href={`/blog/${latest.id}/`}>{latest.data.title}</a></h2>
 					{latest.data.description && <p>{latest.data.description}</p>}
 					<p class="meta"><FormattedDate date={latest.data.pubDate} /></p>

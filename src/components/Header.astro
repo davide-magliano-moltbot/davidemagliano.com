@@ -35,33 +35,23 @@ const isAgent = pathname.startsWith('/agent');
 		margin: 0;
 		padding: 0 1em;
 		background: var(--surface);
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		border-bottom: 1px solid rgba(var(--border-rgb), 0.85);
 		overflow-x: clip;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-		color: var(--text-strong);
-	}
-	h2 a:hover {
-		color: var(--accent);
 	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.75rem 1rem;
+		gap: 0.55rem 1rem;
 		flex-wrap: wrap;
-		max-width: 100%;
-		/* Keep perceived header size consistent across Human/Agent modes */
-		min-height: 52px;
+		min-height: 48px;
 	}
-	/* Prevent the title from forcing horizontal overflow on narrow screens */
-	h2 { min-width: 0; }
+	h2 {
+		margin: 0;
+		font-size: 0.95rem;
+		font-weight: 600;
+		min-width: 0;
+	}
 	h2 a,
 	h2 a.active {
 		display: block;
@@ -69,176 +59,99 @@ const isAgent = pathname.startsWith('/agent');
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		text-decoration: none;
+		color: var(--text-strong);
 	}
 	.internal-links {
 		display: flex;
+		gap: 0.35rem;
 		flex-wrap: wrap;
 		max-width: 100%;
-	}
-	.mode {
-		max-width: 100%;
-		min-width: 0;
-	}
-	.mode-toggle {
-		max-width: 100%;
-		min-width: 0;
-		flex-wrap: wrap;
 	}
 	.internal-links a {
-		padding: 0.9em 0.5em;
-		color: var(--text-strong);
-		border-bottom: 4px solid transparent;
+		padding: 0.55rem 0.35rem;
+		font-family: var(--font-micro);
+		font-size: 0.7rem;
+		letter-spacing: 0.11em;
+		text-transform: uppercase;
 		text-decoration: none;
+		color: rgba(var(--text-rgb), 0.72);
 	}
 	.internal-links a.active {
-		text-decoration: none;
-		/* Active state should feel intentional but not "brand-blue" */
-		border-bottom-color: rgba(var(--text-rgb), 0.38);
+		color: var(--text-strong);
+		text-decoration: underline;
+		text-decoration-thickness: 1.5px;
+		text-underline-offset: 0.24em;
+		text-decoration-color: rgba(var(--accent-rgb), 0.6);
 	}
 
 	.mode {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: 0.38rem;
+		min-width: 0;
 	}
 	.mode-label {
-		font-size: 0.68rem;
 		font-family: var(--font-micro);
-		letter-spacing: 0.14em;
+		font-size: 0.64rem;
+		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: rgba(var(--muted-rgb), 0.92);
+		color: rgba(var(--muted-rgb), 0.9);
 	}
 	.mode-toggle {
 		display: inline-flex;
-		border: 1px solid rgba(var(--border-rgb), 0.9);
-		border-radius: 999px;
-		padding: 3px;
-		gap: 0.2rem;
-		background: rgba(var(--surface-2-rgb), 0.9);
-		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+		gap: 0.45rem;
 	}
 	.mode-toggle a {
+		padding: 0.3rem 0;
+		min-height: 32px;
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		padding: 0.45rem 0.72rem;
-		min-height: 38px;
-		font-size: 0.78em;
 		font-family: var(--font-micro);
-		letter-spacing: 0.08em;
+		font-size: 0.7rem;
+		letter-spacing: 0.11em;
 		text-transform: uppercase;
-		border-radius: 999px;
-		border-bottom: 0;
 		text-decoration: none;
-		color: rgba(var(--text-rgb), 0.76);
-		white-space: nowrap;
-		min-width: 0;
-		transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
-	}
-	.mode-short {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.36rem;
-	}
-	.mode-short::before {
-		content: "";
-		width: 0.38rem;
-		height: 0.38rem;
-		border-radius: 999px;
-		background: rgba(var(--text-rgb), 0.28);
-		transition: background 160ms ease;
-	}
-	.mode-long {
-		display: none;
+		color: rgba(var(--text-rgb), 0.7);
 	}
 	.mode-toggle a.active {
-		/* Active state: intentionally segmented, without brand-blue accents */
-		background: var(--surface);
 		color: var(--text-strong);
-		box-shadow: 0 1px 0 rgba(var(--black), 0.1), inset 0 0 0 1px rgba(var(--accent-rgb), 0.35);
+		text-decoration: underline;
+		text-decoration-thickness: 1.5px;
+		text-underline-offset: 0.24em;
+		text-decoration-color: rgba(var(--accent-rgb), 0.62);
 	}
-	.mode-toggle a.active .mode-short::before {
-		background: rgba(var(--accent-rgb), 0.95);
-	}
-	.mode-toggle a:focus-visible {
-		outline: 2px solid rgba(var(--accent-rgb), 0.7);
-		outline-offset: 2px;
-	}
+	.mode-long { display: none; }
 
-	@media (prefers-color-scheme: dark) {
-		.mode-toggle {
-			background: rgba(255, 255, 255, 0.04);
-			box-shadow: none;
-		}
-		.mode-toggle a.active {
-			box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.45);
-		}
-	}
-
-	/* Agent mode: make the whole header feel utilitarian and minimal */
-	:global(body[data-mode="agent"]) header {
-		box-shadow: none;
-		border-bottom: 1px solid rgba(var(--border-rgb), 0.65);
-	}
 	:global(body[data-mode="agent"]) .internal-links {
 		visibility: hidden;
 		pointer-events: none;
 	}
-	:global(body[data-mode="agent"]) .mode-toggle {
-		background: transparent;
-		border-color: rgba(var(--border-rgb), 0.55);
-	}
-	:global(body[data-mode="agent"]) .mode-toggle a.active {
-		background: transparent;
-		box-shadow: inset 0 -1px 0 rgba(var(--text-rgb), 0.55);
+	:global(body[data-mode="agent"]) .mode-label {
+		display: none;
 	}
 
 	@media (max-width: 720px) {
 		header {
-			/* Respect device safe-areas; avoid the mode toggle getting clipped */
 			padding-left: max(0.6em, env(safe-area-inset-left));
 			padding-right: max(0.6em, env(safe-area-inset-right));
 		}
-		/* Make the header feel intentional on mobile:
-		   title (left) + mode toggle (right), then nav links */
 		nav {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) auto;
 			align-items: center;
-			justify-content: initial;
-			gap: 0.5rem 0.75rem;
-			max-width: 100%;
+			gap: 0.35rem 0.65rem;
 		}
-		h2 {
-			grid-column: 1;
-		}
-		.mode {
-			grid-column: 2;
-			justify-self: end;
-			width: auto;
-		}
+		h2 { grid-column: 1; }
+		.mode { grid-column: 2; justify-self: end; }
 		.internal-links {
 			grid-column: 1 / -1;
 			width: 100%;
 		}
-		.internal-links a {
-			padding: 0.75em 0.45em;
-		}
-		.mode-toggle {
-			width: auto;
-			display: inline-flex;
-		}
-		.mode-label {
-			display: none;
-		}
+		.mode-label { display: none; }
+		.internal-links a,
 		.mode-toggle a {
-			padding: 0.42rem 0.68rem;
-			min-height: 38px;
-			font-size: 0.78rem;
-		}
-		.mode-short::before {
-			width: 0.34rem;
-			height: 0.34rem;
+			font-size: 0.69rem;
 		}
 	}
 </style>

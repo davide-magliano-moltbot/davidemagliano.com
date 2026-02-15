@@ -17,67 +17,48 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={`${SITE_TITLE} — Blog`} description={SITE_DESCRIPTION} />
 		<style>
 			.header {
-				margin: 0 0 1.75rem;
+				margin: 0 0 1rem;
 			}
 			.header h1 {
 				margin: 0 0 0.35rem;
 			}
 			.header p {
 				margin: 0;
+				max-width: 68ch;
 				color: rgba(var(--text-rgb), 0.78);
-				max-width: 70ch;
 			}
 			.list {
 				list-style: none;
 				margin: 0;
 				padding: 0;
-				display: grid;
-				gap: 1.1rem;
 			}
 			.item {
-				border: 1px solid rgba(var(--border-rgb), 0.7);
-				border-radius: 16px;
-				background: rgba(var(--surface-2-rgb), 0.55);
-				padding: 1.05rem 1.05rem 0.95rem;
-				transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+				padding: 0.9rem 0;
+				border-top: 1px solid rgba(var(--border-rgb), 0.78);
 			}
-			.item a {
-				text-decoration: none;
-				color: inherit;
-				display: block;
+			.item:last-child {
+				border-bottom: 1px solid rgba(var(--border-rgb), 0.78);
 			}
 			.meta {
 				font-family: var(--font-micro);
-				font-size: 0.72rem;
+				font-size: 0.68rem;
 				letter-spacing: 0.12em;
 				text-transform: uppercase;
-				color: rgba(var(--muted-rgb), 0.95);
-				display: flex;
-				gap: 0.6rem;
-				flex-wrap: wrap;
-				align-items: baseline;
+				color: rgba(var(--muted-rgb), 0.92);
 			}
 			.title {
-				margin: 0.4rem 0 0.2rem;
-				font-family: var(--font-display);
-				letter-spacing: -0.015em;
-				line-height: 1.1;
-				overflow-wrap: anywhere;
-				word-break: break-word;
+				margin: 0.38rem 0 0.2rem;
+				font-size: 1.15rem;
+				line-height: 1.26;
+			}
+			.title a {
+				text-decoration: none;
+				color: var(--text-strong);
 			}
 			.desc {
 				margin: 0;
-				color: rgba(var(--text-rgb), 0.8);
-				max-width: 75ch;
-			}
-			.item:hover {
-				border-color: rgba(var(--accent-rgb), 0.55);
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-				transform: translateY(-1px);
-			}
-			@media (prefers-reduced-motion: reduce) {
-				.item { transition: none; }
-				.item:hover { transform: none; }
+				max-width: 72ch;
+				color: rgba(var(--text-rgb), 0.76);
 			}
 		</style>
 	</head>
@@ -86,19 +67,15 @@ const posts = (await getCollection('blog')).sort(
 		<main>
 			<header class="header">
 				<h1>Blog</h1>
-				<p>Notes on building agents, shipping systems, and staying sane while doing it.</p>
+				<p>Working notes from real projects.</p>
 			</header>
 
 			<ol class="list">
 				{posts.map((post) => (
 					<li class="item">
-						<a href={`/blog/${post.id}/`}>
-							<div class="meta">
-								<span><FormattedDate date={post.data.pubDate} /></span>
-							</div>
-							<h2 class="title">{post.data.title}</h2>
-							{post.data.description && <p class="desc">{post.data.description}</p>}
-						</a>
+						<div class="meta"><FormattedDate date={post.data.pubDate} /></div>
+						<h2 class="title"><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+						{post.data.description && <p class="desc">{post.data.description}</p>}
 					</li>
 				))}
 			</ol>

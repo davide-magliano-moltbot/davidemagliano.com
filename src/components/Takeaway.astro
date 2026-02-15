@@ -16,38 +16,31 @@ const { title = 'TAKEAWAY', summary, points = [] } = Astro.props;
 
 <style>
 	.takeaway {
-		margin: 1.25rem 0 2rem;
-		padding: 1.05rem 1.05rem 0.95rem;
-		border: 1px solid rgba(var(--border-rgb), 0.7);
-		border-radius: 14px;
-		background: rgba(var(--surface-2-rgb), 0.65);
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+		margin: 1rem 0 1.6rem;
+		padding: 0.25rem 0 0.15rem 0.9rem;
+		border-left: 2px solid rgba(var(--accent-rgb), 0.58);
+		background: transparent;
 	}
 	.takeaway__kicker {
 		font-family: var(--font-micro);
-		font-size: 0.78rem;
+		font-size: 0.68rem;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: rgba(var(--muted-rgb), 0.95);
-		margin-bottom: 0.5rem;
+		color: rgba(var(--muted-rgb), 0.9);
+		margin-bottom: 0.35rem;
 	}
 	.takeaway__summary {
-		margin: 0 0 0.7rem;
-		font-size: 1.02rem;
-		line-height: 1.6;
+		margin: 0 0 0.5rem;
+		font-size: 0.98rem;
+		line-height: 1.58;
 		color: var(--text);
 	}
 	.takeaway__points {
 		margin: 0;
-		padding-left: 1.15rem;
-		color: rgba(var(--text-rgb), 0.92);
+		padding-left: 1rem;
+		color: rgba(var(--text-rgb), 0.9);
 	}
 	.takeaway__points li {
-		margin: 0.35rem 0;
-	}
-	@media (prefers-color-scheme: dark) {
-		.takeaway {
-			background: rgba(var(--surface-2-rgb), 0.55);
-		}
+		margin: 0.24rem 0;
 	}
 </style>

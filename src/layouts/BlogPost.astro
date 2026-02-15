@@ -21,76 +21,68 @@ const { title, description, pubDate, updatedDate, takeaway, keyPoints, tags } = 
 				margin: 0;
 			}
 			.prose {
-				width: 820px;
+				width: 760px;
 				max-width: calc(100% - 2em);
 				margin: auto;
-				padding: 1.25em 1em 2.5em;
+				padding: 1.1em 1em 2.3em;
 				color: var(--text);
 			}
 			.title {
-				margin: 0 0 1.25em;
-				padding: 1.25em 0 0.5em;
+				margin: 0 0 1.05em;
+				padding: 1rem 0 0.5rem;
 				text-align: left;
 			}
 			.kicker {
 				font-family: var(--font-micro);
-				font-size: 0.78rem;
+				font-size: 0.68rem;
 				letter-spacing: 0.12em;
 				text-transform: uppercase;
 				color: rgba(var(--muted-rgb), 0.95);
 				display: flex;
-				gap: 0.75rem;
+				gap: 0.65rem;
 				flex-wrap: wrap;
 				align-items: baseline;
 			}
-			.kicker .dot {
-				opacity: 0.6;
-			}
+			.kicker .dot { opacity: 0.55; }
 			.title h1 {
-				font-family: var(--font-display);
 				font-weight: 600;
 				letter-spacing: -0.02em;
-				margin: 0.45rem 0 0.2rem;
-				line-height: 1.05;
+				margin: 0.38rem 0 0.2rem;
+				line-height: 1.08;
 			}
 			.subtitle {
-				margin: 0.25rem 0 0;
-				color: rgba(var(--text-rgb), 0.78);
-				max-width: 70ch;
-			}
-			/* Blog prose typography: slightly smaller headings for better mobile reading */
-			.prose :global(h2) {
-				font-size: clamp(1.35rem, 4.4vw, 1.7rem);
-				line-height: 1.15;
-				font-weight: 600;
-				margin-top: 1.65rem;
-			}
-			.prose :global(h3) {
-				font-size: clamp(1.15rem, 3.6vw, 1.35rem);
-				line-height: 1.2;
-				font-weight: 600;
-				margin-top: 1.2rem;
+				margin: 0.2rem 0 0;
+				color: rgba(var(--text-rgb), 0.76);
+				max-width: 68ch;
 			}
 			.tags {
-				display: flex;
-				gap: 0.4rem;
-				flex-wrap: wrap;
-			}
-			.tag {
+				margin-top: 0.45rem;
 				font-family: var(--font-micro);
-				font-size: 0.72rem;
+				font-size: 0.68rem;
 				letter-spacing: 0.1em;
 				text-transform: uppercase;
-				padding: 0.25rem 0.5rem;
-				border-radius: 999px;
-				border: 1px solid rgba(var(--border-rgb), 0.7);
-				background: rgba(var(--surface-2-rgb), 0.55);
-				color: rgba(var(--text-rgb), 0.8);
+				color: rgba(var(--muted-rgb), 0.9);
+			}
+			.tags .tag + .tag::before {
+				content: " · ";
+				opacity: 0.55;
 			}
 			.rule {
-				margin: 1.25rem 0 0;
+				margin: 1rem 0 0;
 				height: 1px;
 				background: rgba(var(--border-rgb), 0.8);
+			}
+			.prose :global(h2) {
+				font-size: clamp(1.3rem, 4.2vw, 1.6rem);
+				line-height: 1.18;
+				font-weight: 600;
+				margin-top: 1.55rem;
+			}
+			.prose :global(h3) {
+				font-size: clamp(1.1rem, 3.4vw, 1.28rem);
+				line-height: 1.22;
+				font-weight: 600;
+				margin-top: 1.1rem;
 			}
 		</style>
 	</head>
@@ -113,11 +105,11 @@ const { title, description, pubDate, updatedDate, takeaway, keyPoints, tags } = 
 						<h1>{title}</h1>
 						{description && <p class="subtitle">{description}</p>}
 						{tags?.length ? (
-							<div class="tags" aria-label="Post tags">
+							<p class="tags" aria-label="Post tags">
 								{tags.map((t) => (
 									<span class="tag">{t}</span>
 								))}
-							</div>
+							</p>
 						) : null}
 						<div class="rule" aria-hidden="true"></div>
 					</header>
