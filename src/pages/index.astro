@@ -18,112 +18,86 @@ const latest = posts[0];
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			.hero {
-				padding: 1.25rem 0 1.5rem;
+				padding: 1.15rem 0 1.25rem;
+			}
+			.eyebrow {
+				margin: 0;
+				font-family: var(--font-micro);
+				font-size: 0.72rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: rgba(var(--muted-rgb), 0.92);
 			}
 			.hero h1 {
-				margin: 0 0 0.6rem;
+				margin: 0.45rem 0 0.45rem;
 				font-family: var(--font-display);
+				line-height: 1.08;
 				letter-spacing: -0.02em;
-				line-height: 1.05;
+				max-width: 18ch;
 			}
 			.hero p {
-				margin: 0.35rem 0 0;
-				color: rgba(var(--text-rgb), 0.82);
-				max-width: 75ch;
-			}
-			.hero .sub {
-				color: rgba(var(--text-rgb), 0.72);
-			}
-			.card {
-				margin-top: 1.5rem;
-				border: 1px solid rgba(var(--border-rgb), 0.7);
-				border-radius: 18px;
-				background: rgba(var(--surface-2-rgb), 0.55);
-				padding: 1.15rem 1.15rem 1.05rem;
-				transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
-			}
-			.card:hover {
-				border-color: rgba(var(--accent-rgb), 0.35);
-				background: rgba(var(--surface-2-rgb), 0.72);
-				transform: translateY(-1px);
-			}
-			@media (prefers-reduced-motion: reduce) {
-				.card { transition: none; }
-				.card:hover { transform: none; }
-			}
-			.kicker {
-				font-family: var(--font-micro);
-				font-size: 0.72rem;
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-				color: rgba(var(--muted-rgb), 0.95);
-			}
-			.card h2 {
-				margin: 0.5rem 0 0.3rem;
-				font-size: 1.6rem;
-			}
-			.card p {
 				margin: 0;
 				color: rgba(var(--text-rgb), 0.8);
-				max-width: 75ch;
+				max-width: 68ch;
 			}
-			.card .meta {
-				margin-top: 0.65rem;
-				color: rgba(var(--text-rgb), 0.65);
-				font-size: 0.95rem;
-			}
-			.card a {
-				text-decoration: none;
-			}
-			.card h2 a {
-				color: var(--text-strong);
-				text-decoration-color: rgba(var(--accent-rgb), 0.35);
-			}
-			.card h2 a:hover {
-				color: var(--accent);
-				text-decoration-color: rgba(var(--accent-rgb), 0.75);
-			}
-			.links {
-				margin-top: 1.2rem;
+			.actions {
+				margin-top: 1rem;
 				display: flex;
-				gap: 0.8rem;
+				gap: 0.65rem;
 				flex-wrap: wrap;
 			}
-			.links a {
+			.actions a {
 				font-family: var(--font-micro);
 				font-size: 0.72rem;
-				letter-spacing: 0.12em;
+				letter-spacing: 0.11em;
 				text-transform: uppercase;
-				padding: 0.55rem 0.9rem;
-				min-height: 44px;
+				padding: 0.5rem 0.85rem;
+				min-height: 42px;
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
 				border-radius: 999px;
-				border: 1px solid rgba(var(--text-rgb), 0.14);
-				background: rgba(var(--surface-2-rgb), 0.35);
-				color: rgba(var(--text-rgb), 0.9);
+				border: 1px solid rgba(var(--border-rgb), 0.85);
+				background: rgba(var(--surface-2-rgb), 0.5);
 				text-decoration: none;
-				transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 120ms ease;
+				color: rgba(var(--text-rgb), 0.92);
 			}
-			.links a:hover {
-				border-color: rgba(var(--accent-rgb), 0.6);
-				background: rgba(var(--accent-rgb), 0.08);
+			.actions a:hover {
+				border-color: rgba(var(--accent-rgb), 0.5);
+			}
+			.latest {
+				margin-top: 1.35rem;
+				padding-top: 1rem;
+				border-top: 1px solid rgba(var(--border-rgb), 0.8);
+			}
+			.latest-label {
+				margin: 0;
+				font-family: var(--font-micro);
+				font-size: 0.68rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: rgba(var(--muted-rgb), 0.92);
+			}
+			.latest h2 {
+				margin: 0.45rem 0 0.3rem;
+				font-size: 1.3rem;
+				line-height: 1.2;
+			}
+			.latest h2 a {
+				text-decoration: none;
 				color: var(--text-strong);
 			}
-			.links a:active {
-				transform: translateY(1px);
+			.latest h2 a:hover {
+				color: var(--accent);
 			}
-			@media (prefers-color-scheme: dark) {
-				.links a {
-					border-color: rgba(var(--text-rgb), 0.18);
-					background: rgba(255, 255, 255, 0.04);
-					color: rgba(var(--text-rgb), 0.9);
-				}
-				.links a:hover {
-					border-color: rgba(var(--accent-rgb), 0.55);
-					background: rgba(var(--accent-rgb), 0.12);
-				}
+			.latest p {
+				margin: 0;
+				color: rgba(var(--text-rgb), 0.75);
+			}
+			.latest .meta {
+				margin-top: 0.45rem;
+				font-size: 0.9rem;
+				color: rgba(var(--text-rgb), 0.62);
 			}
 		</style>
 	</head>
@@ -131,20 +105,22 @@ const latest = posts[0];
 		<Header />
 		<main>
 			<section class="hero">
-				<h1>Hey — I’m Davide.</h1>
-				<p class="sub">A small personal site for notes on agents, systems, and shipping.</p>
-				<p>Readable for humans by default. There’s also an agent view via the header toggle.</p>
+				<p class="eyebrow">Built from WhatsApp</p>
+				<h1>One small site about AI agents, systems, and shipping.</h1>
+				<p>
+					This is a practical notebook. Nothing fancy — just what I’m building, what works, and what breaks.
+				</p>
 
-				<nav class="links" aria-label="Quick links">
-					<a href="/blog">Read</a>
+				<nav class="actions" aria-label="Quick links">
+					<a href="/blog">Read the blog</a>
 					<a href="/about">About</a>
 					<a href="/agent">Agent view</a>
 				</nav>
 			</section>
 
 			{latest && (
-				<section class="card" aria-label="Latest post">
-					<div class="kicker">Latest</div>
+				<section class="latest" aria-label="Latest post">
+					<p class="latest-label">Latest post</p>
 					<h2><a href={`/blog/${latest.id}/`}>{latest.data.title}</a></h2>
 					{latest.data.description && <p>{latest.data.description}</p>}
 					<p class="meta"><FormattedDate date={latest.data.pubDate} /></p>
