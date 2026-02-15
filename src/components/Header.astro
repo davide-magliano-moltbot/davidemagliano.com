@@ -10,6 +10,7 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="/about" class="cta-link">Work together</HeaderLink>
 		</div>
 	</nav>
 </header>
@@ -68,6 +69,16 @@ import HeaderLink from './HeaderLink.astro';
 		text-underline-offset: 0.24em;
 		text-decoration-color: rgba(var(--accent-rgb), 0.6);
 	}
+	.internal-links a.cta-link {
+		color: var(--text-strong);
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.2em;
+		text-decoration-color: rgba(var(--accent-rgb), 0.45);
+	}
+	.internal-links a.cta-link.active {
+		text-decoration-color: rgba(var(--accent-rgb), 0.7);
+	}
 
 	@media (max-width: 720px) {
 		header {
@@ -86,9 +97,14 @@ import HeaderLink from './HeaderLink.astro';
 		.internal-links {
 			grid-column: 1;
 			width: 100%;
+			gap: 0.2rem 0.3rem;
 		}
 		.internal-links a {
 			font-size: 0.69rem;
+			padding: 0.45rem 0.3rem;
+		}
+		.internal-links a.cta-link {
+			padding-right: 0.15rem;
 		}
 	}
 </style>
