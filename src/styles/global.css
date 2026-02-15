@@ -68,8 +68,8 @@
 /* Font stacks (OSS defaults; can be swapped later for licensed fonts) */
 :root {
 	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-	--font-body: var(--font-mono);
-	--font-display: var(--font-mono);
+	--font-body: "Atkinson", "IBM Plex Sans", "Inter", "Segoe UI", sans-serif;
+	--font-display: "Atkinson", "IBM Plex Sans", "Inter", "Segoe UI", sans-serif;
 	--font-micro: var(--font-mono);
 }
 * { box-sizing: border-box; }
@@ -239,6 +239,9 @@ hr {
 /* Agent mode: less decoration, more scan-ability */
 body[data-mode="agent"] {
 	background: var(--surface);
+	font-family: var(--font-mono);
+	font-size: 16px;
+	line-height: 1.65;
 }
 body[data-mode="agent"] main {
 	padding-top: 1.6em;
