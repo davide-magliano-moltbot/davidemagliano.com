@@ -58,6 +58,19 @@ const { title, description, pubDate, updatedDate, takeaway, keyPoints, tags } = 
 				color: rgba(var(--text-rgb), 0.78);
 				max-width: 70ch;
 			}
+			/* Blog prose typography: slightly smaller headings for better mobile reading */
+			.prose :global(h2) {
+				font-size: clamp(1.35rem, 4.4vw, 1.7rem);
+				line-height: 1.15;
+				font-weight: 600;
+				margin-top: 1.65rem;
+			}
+			.prose :global(h3) {
+				font-size: clamp(1.15rem, 3.6vw, 1.35rem);
+				line-height: 1.2;
+				font-weight: 600;
+				margin-top: 1.2rem;
+			}
 			.tags {
 				display: flex;
 				gap: 0.4rem;
