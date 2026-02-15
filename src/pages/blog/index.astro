@@ -39,6 +39,7 @@ const posts = (await getCollection('blog')).sort(
 				border-radius: 16px;
 				background: rgba(var(--surface-2-rgb), 0.55);
 				padding: 1.05rem 1.05rem 0.95rem;
+				transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 			}
 			.item a {
 				text-decoration: none;
@@ -72,9 +73,11 @@ const posts = (await getCollection('blog')).sort(
 			.item:hover {
 				border-color: rgba(var(--accent-rgb), 0.55);
 				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+				transform: translateY(-1px);
 			}
 			@media (prefers-reduced-motion: reduce) {
 				.item { transition: none; }
+				.item:hover { transform: none; }
 			}
 		</style>
 	</head>

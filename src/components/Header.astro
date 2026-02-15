@@ -15,7 +15,7 @@ const isAgent = pathname.startsWith('/agent');
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 		<div class="mode">
-			<span class="mode-label">View:</span>
+			<span class="mode-label">Mode</span>
 			<div class="mode-toggle" role="group" aria-label="Select view mode">
 				<a class:list={["mode-btn", !isAgent && "active"].filter(Boolean)} href="/">
 					<span class="mode-long sr-only">I am a human</span>
@@ -102,11 +102,11 @@ const isAgent = pathname.startsWith('/agent');
 		gap: 0.5rem;
 	}
 	.mode-label {
-		font-size: 0.72rem;
+		font-size: 0.68rem;
 		font-family: var(--font-micro);
-		letter-spacing: 0.12em;
+		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: rgba(var(--muted-rgb), 0.95);
+		color: rgba(var(--muted-rgb), 0.92);
 	}
 	.mode-toggle {
 		display: inline-flex;

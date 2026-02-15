@@ -78,6 +78,7 @@ html, body { width: 100%; overflow-x: clip; }
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 	font-family: var(--font-body);
 	margin: 0;
 	padding: 0;
@@ -88,12 +89,12 @@ body {
 	overflow-wrap: break-word;
 	color: var(--text);
 	font-size: 16.75px;
-	line-height: 1.75;
+	line-height: 1.72;
 	font-weight: 400;
 }
 main {
-	width: min(860px, calc(100% - 2em));
-	max-width: 860px;
+	width: min(840px, calc(100% - 2em));
+	max-width: 840px;
 	margin: auto;
 	padding: 2.25em 0;
 }
@@ -225,7 +226,13 @@ hr {
 }
 @media (max-width: 720px) {
 	body {
-		font-size: 16.5px;
+		font-size: 16.25px;
+	}
+	h1 {
+		font-size: clamp(2rem, 8.5vw, 2.3rem);
+	}
+	h2 {
+		font-size: clamp(1.6rem, 7vw, 1.9rem);
 	}
 	main {
 		width: calc(100% - 1.9em);
