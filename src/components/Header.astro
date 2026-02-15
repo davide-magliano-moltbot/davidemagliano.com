@@ -33,7 +33,7 @@ const isAgent = pathname.startsWith('/agent');
 <style>
 	header {
 		margin: 0;
-		padding: 0 1em;
+		padding: 0 0.65em;
 		background: var(--surface);
 		border-bottom: 1px solid rgba(var(--border-rgb), 0.85);
 		overflow-x: clip;
@@ -133,8 +133,8 @@ const isAgent = pathname.startsWith('/agent');
 
 	@media (max-width: 720px) {
 		header {
-			padding-left: max(0.6em, env(safe-area-inset-left));
-			padding-right: max(0.6em, env(safe-area-inset-right));
+			padding-left: max(0.45em, env(safe-area-inset-left));
+			padding-right: max(0.45em, env(safe-area-inset-right));
 		}
 		nav {
 			display: grid;

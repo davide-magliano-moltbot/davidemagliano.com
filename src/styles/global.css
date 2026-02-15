@@ -93,10 +93,10 @@ body {
 	font-weight: 400;
 }
 main {
-	width: min(840px, calc(100% - 2em));
+	width: min(840px, calc(100% - 1.2em));
 	max-width: 840px;
 	margin: auto;
-	padding: 2.25em 0;
+	padding: 2.1em 0;
 }
 h1,
 h2,
@@ -235,8 +235,8 @@ hr {
 		font-size: clamp(1.35rem, 5.3vw, 1.6rem);
 	}
 	main {
-		width: calc(100% - 1.9em);
-		padding: 1.15em 0;
+		width: calc(100% - 1.2em);
+		padding: 1em 0;
 	}
 	pre {
 		max-width: 100%;
