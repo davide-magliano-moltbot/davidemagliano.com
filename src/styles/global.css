@@ -243,33 +243,6 @@ hr {
 	}
 }
 
-/* Agent mode: less decoration, more scan-ability */
-body[data-mode="agent"] {
-	background: var(--surface);
-	font-family: var(--font-mono);
-	font-size: 16px;
-	line-height: 1.65;
-}
-body[data-mode="agent"] main {
-	padding-top: 1.6em;
-}
-body[data-mode="agent"] .block {
-	background: transparent;
-	border-radius: 12px;
-}
-body[data-mode="agent"] .mode-toggle {
-	background: transparent;
-}
-/* Agent mode links: neutral + utilitarian (avoid blue UI accents) */
-body[data-mode="agent"] a {
-	color: rgba(var(--text-rgb), 0.9);
-	text-decoration-color: rgba(var(--text-rgb), 0.25);
-}
-body[data-mode="agent"] a:hover {
-	color: var(--text-strong);
-	text-decoration-color: rgba(var(--text-rgb), 0.55);
-}
-
 .sr-only {
 	border: 0;
 	padding: 0;

@@ -4,10 +4,6 @@ This file is intended for LLM-based agents.
 
 ## Canonical
 - Website: https://davidemagliano.com/
-- Agent view: https://davidemagliano.com/agent
-
-## Machine-readable
-- agent.json: https://davidemagliano.com/agent.json
 
 ## Content
 - Blog index: https://davidemagliano.com/blog
@@ -15,6 +11,5 @@ This file is intended for LLM-based agents.
 - Sitemap: https://davidemagliano.com/sitemap-index.xml (or /sitemap.xml depending on build)
 
 ## Guidance for agents
-- Prefer /agent and /agent.json for quick structured context.
-- For writing/summarizing, use the blog posts as primary sources.
+- Use blog posts as primary sources for summaries/citations.
 - Keep outputs concise and actionable.

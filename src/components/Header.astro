@@ -1,31 +1,15 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
-
-const pathname = Astro.url?.pathname ?? '/';
-const isAgent = pathname.startsWith('/agent');
 ---
 
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links" aria-hidden={isAgent ? "true" : undefined}>
+		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
-		</div>
-		<div class="mode">
-			<span class="mode-label">Mode</span>
-			<div class="mode-toggle" role="group" aria-label="Select view mode">
-				<a class:list={["mode-btn", !isAgent && "active"].filter(Boolean)} href="/">
-					<span class="mode-long sr-only">I am a human</span>
-					<span class="mode-short">Human</span>
-				</a>
-				<a class:list={["mode-btn", isAgent && "active"].filter(Boolean)} href="/agent">
-					<span class="mode-long sr-only">I am an agent</span>
-					<span class="mode-short">Agent</span>
-				</a>
-			</div>
 		</div>
 	</nav>
 </header>
@@ -85,52 +69,6 @@ const isAgent = pathname.startsWith('/agent');
 		text-decoration-color: rgba(var(--accent-rgb), 0.6);
 	}
 
-	.mode {
-		display: flex;
-		align-items: center;
-		gap: 0.38rem;
-		min-width: 0;
-	}
-	.mode-label {
-		font-family: var(--font-micro);
-		font-size: 0.64rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: rgba(var(--muted-rgb), 0.9);
-	}
-	.mode-toggle {
-		display: inline-flex;
-		gap: 0.45rem;
-	}
-	.mode-toggle a {
-		padding: 0.3rem 0;
-		min-height: 32px;
-		display: inline-flex;
-		align-items: center;
-		font-family: var(--font-micro);
-		font-size: 0.7rem;
-		letter-spacing: 0.11em;
-		text-transform: uppercase;
-		text-decoration: none;
-		color: rgba(var(--text-rgb), 0.7);
-	}
-	.mode-toggle a.active {
-		color: var(--text-strong);
-		text-decoration: underline;
-		text-decoration-thickness: 1.5px;
-		text-underline-offset: 0.24em;
-		text-decoration-color: rgba(var(--accent-rgb), 0.62);
-	}
-	.mode-long { display: none; }
-
-	:global(body[data-mode="agent"]) .internal-links {
-		visibility: hidden;
-		pointer-events: none;
-	}
-	:global(body[data-mode="agent"]) .mode-label {
-		display: none;
-	}
-
 	@media (max-width: 720px) {
 		header {
 			padding-left: max(0.45em, env(safe-area-inset-left));
@@ -138,19 +76,18 @@ const isAgent = pathname.startsWith('/agent');
 		}
 		nav {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-columns: minmax(0, 1fr);
 			align-items: center;
 			gap: 0.35rem 0.65rem;
 		}
-		h2 { grid-column: 1; }
-		.mode { grid-column: 2; justify-self: end; }
+		h2 {
+			grid-column: 1;
+		}
 		.internal-links {
-			grid-column: 1 / -1;
+			grid-column: 1;
 			width: 100%;
 		}
-		.mode-label { display: none; }
-		.internal-links a,
-		.mode-toggle a {
+		.internal-links a {
 			font-size: 0.69rem;
 		}
 	}
